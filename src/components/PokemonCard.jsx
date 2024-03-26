@@ -1,30 +1,19 @@
-const PokemonList = [
-  {
-    pokemonName: "Bulbizarre",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    pokemonName: "Mew",
-  },
-];
-
-function PokemonCard() {
-  const pokemon = PokemonList[0]; // Replace 0 BY 1 To get Mew Instead
-
-  if (pokemon.pokemonName === "Bulbizarre") {
-    return (
-      <figure>
-        <img src={pokemon.imgSrc} alt={pokemon.pokemonName} />
-        <figcaption>{pokemon.pokemonName} </figcaption>
-      </figure>
-    );
-  }
+function PokemonCard({ pokemon }) {
+  // Replace 0 BY 1 To get Mew Instead
   return (
-    <figure>
-      <p>???</p>
-      <figcaption>{pokemon.pokemonName} </figcaption>
-    </figure>
+    <>
+      {pokemon.imgSrc !== undefined ? (
+        <figure>
+          <img src={pokemon.imgSrc} alt={pokemon.name} />
+          <figcaption>{pokemon.name} </figcaption>
+        </figure>
+      ) : (
+        <figure>
+          <p>???</p>
+          <figcaption>{pokemon.name} </figcaption>
+        </figure>
+      )}
+    </>
   );
 }
 
