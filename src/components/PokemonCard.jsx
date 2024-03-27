@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function PokemonCard({ pokemon }) {
   // Replace 0 BY 1 To get Mew Instead
   return (
@@ -16,5 +18,12 @@ function PokemonCard({ pokemon }) {
     </>
   );
 }
+
+PokemonCard.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string,
+  }).isRequired,
+};
 
 export default PokemonCard;
