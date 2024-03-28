@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 function PokemonCard({ pokemon }) {
-  // Replace 0 BY 1 To get Mew Instead
   return (
     <>
       {pokemon.imgSrc !== undefined ? (
