@@ -1,12 +1,21 @@
+import "../PokemonCard.css";
 import PropTypes from "prop-types";
 
 function PokemonCard({ pokemon }) {
   return (
     <>
-      {pokemon.imgSrc !== undefined ? (
-        <figure>
-          <img src={pokemon.imgSrc} alt={pokemon.name} />
-          <figcaption>{pokemon.name} </figcaption>
+      {pokemon.img !== undefined ? (
+        <figure className="container">
+          <h1>
+            #{pokemon.num} : {pokemon.name}
+          </h1>
+          <img src={pokemon.img} alt={pokemon.name} />
+          <figcaption className="details">
+            <p>Type: {pokemon.type + ""}</p>
+            <p>Height: {pokemon.height}</p>
+            Weight : {pokemon.weight}
+            <p> Weaknesses : {pokemon.weaknesses + ""} </p>
+          </figcaption>
         </figure>
       ) : (
         <figure>
@@ -21,7 +30,12 @@ function PokemonCard({ pokemon }) {
 PokemonCard.propTypes = {
   pokemon: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string,
+    img: PropTypes.string,
+    num: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired,
+    weight: PropTypes.string.isRequired,
+    weaknesses: PropTypes.string.isRequired,
   }).isRequired,
 };
 

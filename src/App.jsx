@@ -2,6 +2,7 @@ import "./App.css";
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
 import { useEffect, useState } from "react";
+import pokemonList from "./data/data";
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
@@ -10,36 +11,15 @@ function App() {
     alert("hello pokemon trainer :)");
   }, []);
 
-  const pokemonList = [
-    {
-      name: "Bulbizarre",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    {
-      name: "Salamèche",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-    },
-    {
-      name: "Carapuce",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-    },
-    {
-      name: "Pikachu",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-    },
-    {
-      name: "Mew",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
-    },
-  ];
   return (
     <div>
-      <NavBar pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} />
+      <h1>PokeFinder</h1>
+      <h2>Your Gen 1 Pokemon reference</h2>
+      <NavBar
+        pokemonList={pokemonList}
+        pokemonIndex={pokemonIndex}
+        setPokemonIndex={setPokemonIndex}
+      />
       <PokemonCard
         pokemon={pokemonList[pokemonIndex]}
         setPokemonIndex={setPokemonIndex}
